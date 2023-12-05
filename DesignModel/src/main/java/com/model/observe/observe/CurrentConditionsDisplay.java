@@ -12,7 +12,7 @@ public class CurrentConditionsDisplay implements DisplayElement, Observer {
 
    public CurrentConditionsDisplay(WeatherSubject weatherSubject) {
         this.weatherSubject = weatherSubject;
-        //register ob
+        //registers this observer
         weatherSubject.resignObserver(this);
     }
 

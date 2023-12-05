@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class WeatherSubject implements Subject {
 
     private ArrayList<Observer> observers;
+
     private float temp;
     private float humidity;
     private float pressure;
