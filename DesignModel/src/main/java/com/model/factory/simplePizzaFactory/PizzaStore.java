@@ -1,7 +1,7 @@
-package com.model.factory;
+package com.model.factory.simplePizzaFactory;
 
 import com.model.factory.allPizzas.Pizza;
-import com.model.factory.pizzaFactory.SimplePizzaFactory;
+import com.model.factory.simplePizzaFactory.SimplePizzaFactory;
 
 public class PizzaStore {
     //use factory to create pizzas ,create a lot of concrete class

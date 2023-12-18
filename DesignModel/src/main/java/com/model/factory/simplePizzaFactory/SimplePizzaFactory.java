@@ -1,4 +1,4 @@
-package com.model.factory.pizzaFactory;
+package com.model.factory.simplePizzaFactory;
 
 import com.model.factory.allPizzas.*;
 
