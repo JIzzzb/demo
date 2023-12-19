@@ -1,5 +1,9 @@
 package com.model.factory.pizzaFactory;
 
+/**
+ * pizzaStore is a classic factory.
+ * factory uses extends to create class object
+ */
 public abstract class pizzaStore {
     //move factory class to this method
     public abstract Pizza createPizza(String type);

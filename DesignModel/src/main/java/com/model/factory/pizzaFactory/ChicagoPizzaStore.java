@@ -1,6 +1,8 @@
 package com.model.factory.pizzaFactory;
 
-
+/**
+ * concrete factory2
+ */
 public class ChicagoPizzaStore extends pizzaStore{
     @Override
     public Pizza createPizza(String type) {
