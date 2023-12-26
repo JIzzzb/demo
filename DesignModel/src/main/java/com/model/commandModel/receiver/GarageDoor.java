@@ -1,6 +1,7 @@
 package com.model.commandModel.receiver;
 
 public class GarageDoor {
+
     public void up() {
         System.out.println("GarageDoor is up");
     }
