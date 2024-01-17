@@ -2,11 +2,13 @@ package com.solution.BFS;
 
 import com.solution.Node;
 
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Solutions {
-
+    //20240116
     public void mirror_mid(Node root) {
         if (root == null) {
             return;
@@ -87,6 +89,8 @@ public class Solutions {
                 if (t.right == null) {
                     t.right = root;
                     root = root.left;
+                    //指向之后
+                    continue;
                 } else {
                     t.right = null;
                 }
@@ -107,5 +111,33 @@ public class Solutions {
         int val = a.val;
         a.val = b.val;
         b.val = val;
+    }
+
+    //20240117
+    List<List<Integer>> ans;
+    int t;
+
+    public List<List<Integer>> solution_sw_34(Node root, int target) {
+        if (root == null) {
+            return null;
+        }
+        ans = new ArrayList<>();
+        t = target;
+        List<Integer> list = new ArrayList<>();
+        dfs_sw_34(list, root);
+        return ans;
+    }
+
+    private void dfs_sw_34(List<Integer> list, Node root) {
+        if (root == null) return;
+        list.add(root.val);
+        if (t - root.val == 0 && root.left == null && root.right == null) {
+            ans.add(new ArrayList<>(list));
+        }
+        dfs_sw_34(list, root.left);
+        dfs_sw_34(list, root.right);
+        t = t + root.val;
+        list.remove(list.size() - 1);
+
     }
 }
