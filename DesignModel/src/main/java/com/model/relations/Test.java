@@ -1,4 +1,4 @@
-package com.model.templateMethodPattern.relations;
+package com.model.relations;
 
 public class Test {
 

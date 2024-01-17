@@ -1,4 +1,4 @@
-package com.model.templateMethodPattern.relations;
+package com.model.relations;
 
 public class A {
 
@@ -6,6 +6,7 @@ public class A {
     public void dependencyB(B b1) {
         System.out.println("dependency " + b1);
     }
+
 
     //aggregation
     B b;

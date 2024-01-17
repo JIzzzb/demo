@@ -1,6 +1,7 @@
 package com.model.templateMethodPattern.hook;
 
 public abstract class CaffeineBeverageWithHook {
+    //hook 代表子类可实现也可不实现
     final void prepare() {
         boilWater();
         brew();
@@ -9,7 +10,7 @@ public abstract class CaffeineBeverageWithHook {
             addCondiments();
         }
     }
-
+    //hook
     public boolean customerWantsCondiments() {
         return true;
     }
