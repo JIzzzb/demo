@@ -2,10 +2,7 @@ package com.solution.BFS;
 
 import com.solution.Node;
 
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class Solutions {
     //20240116
@@ -115,29 +112,69 @@ public class Solutions {
 
     //20240117
     List<List<Integer>> ans;
-    int t;
 
     public List<List<Integer>> solution_sw_34(Node root, int target) {
-        if (root == null) {
-            return null;
-        }
         ans = new ArrayList<>();
-        t = target;
+        if (root == null) {
+            return ans;
+        }
         List<Integer> list = new ArrayList<>();
-        dfs_sw_34(list, root);
+        dfs_sw_34(list, target, root);
         return ans;
     }
 
-    private void dfs_sw_34(List<Integer> list, Node root) {
+    private void dfs_sw_34(List<Integer> list, int cur, Node root) {
         if (root == null) return;
         list.add(root.val);
-        if (t - root.val == 0 && root.left == null && root.right == null) {
+        if (cur - root.val == 0 && root.left == null && root.right == null) {
             ans.add(new ArrayList<>(list));
         }
-        dfs_sw_34(list, root.left);
-        dfs_sw_34(list, root.right);
-        t = t + root.val;
+        dfs_sw_34(list, cur - root.val, root.left);
+        dfs_sw_34(list, cur - root.val, root.right);
         list.remove(list.size() - 1);
+    }
 
+    //20240118
+    public List<List<Integer>> solution_94(int[] nums) {
+
+    }
+
+    public long solution_2171_violence(int[] nums) {
+        if (nums == null) return 0;
+        Arrays.sort(nums);
+        long ans = Long.MAX_VALUE;
+        long preSum = 0;
+        boolean[] flags = new boolean[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            long cur = preSum;
+            preSum += nums[i];
+            if (flags[i]) {
+                continue;
+            }
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] == nums[j]) {
+                    flags[j] = true;
+                    continue;
+                }
+                cur += nums[j] - nums[i];
+            }
+            ans = Math.min(cur, ans);
+        }
+        return ans;
+    }
+
+    //20240119
+    public long solution_2171(int[] beans) {
+        int n = beans.length;
+        Arrays.sort(beans);
+        long total = 0; // 豆子总数
+        for (int i = 0; i < n; i++) {
+            total += beans[i];
+        }
+        long res = total; // 最少需要移除的豆子数
+        for (int i = 0; i < n; i++) {
+            res = Math.min(res, total - (long) beans[i] * (n - i));
+        }
+        return res;
     }
 }
