@@ -136,7 +136,7 @@ public class Solutions {
 
     //20240118
     public List<List<Integer>> solution_94(int[] nums) {
-
+        return new ArrayList<List<Integer>>();
     }
 
     public long solution_2171_violence(int[] nums) {
